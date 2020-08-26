@@ -1,0 +1,35 @@
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @restaurant.category %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @restaurant.phone_number %>
+</p>
+
+<!-- ul -->
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+  <li class="list-group-item">
+    <%= review.content %>
+    <%= "⭐" * review.rating %>
+  </li>
+  <% end %>
+</ul>
+
+
+<%= link_to "Leave a review", new_restaurant_review_path(@restaurant.id), class: "btn btn-outline-secondary" %>
+
+<br>
+<%= link_to 'Back', restaurants_path %>
